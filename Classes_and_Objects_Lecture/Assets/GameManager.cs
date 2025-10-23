@@ -1,0 +1,47 @@
+using UnityEngine;
+
+public class GameManager : MonoBehaviour
+{
+    Enemy bob, alice;
+    int playerHP = 10;
+    void Start()
+    {
+        bob = new Enemy(5, 2, "Bob");
+        Debug.Log(bob.name + " is born");
+        alice = new Enemy(2, 5, "Alice");
+        Debug.Log(alice.name + " is born");
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+            //Bob takes damage if Spacebar is pressed
+            bob.TakeDamage();
+        else if (Input.GetKeyDown(KeyCode.LeftShift))
+            //Alice takes damage if left shift is pressed
+            alice.TakeDamage();
+        else if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            //Player takes damage from bob if left control is pressed
+            playerHP -= bob.damage;
+            Debug.Log("Player HP: " + playerHP);
+        }
+        else if (Input.GetKeyDown(KeyCode.LeftAlt))
+        {
+            //Player takes damage from alice if left alt is pressed
+            playerHP -= alice.damage;
+            Debug.Log("Player HP: " + playerHP);
+        }
+        if (bob.hitpoints < 1)
+            //if bob's hp is under 1, he dies
+            bob.Die();
+        if (alice.hitpoints < 1)
+            //if alice's hp is under 1, she dies
+            alice.Die();
+        if (playerHP < 1)
+            //if our hp is under 1, we die
+            Debug.Log("You Died!");
+    }
+}
