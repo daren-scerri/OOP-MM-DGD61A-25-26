@@ -4,11 +4,12 @@ public class GameManager : MonoBehaviour
 {
     Enemy bob, alice;
     int playerHP = 10;
+    public GameObject Enemy1, Enemy2;
     void Start()
     {
-        bob = new Enemy(5, 2, "Bob");
+        bob = new Enemy(5, 2, "Bob", Enemy1, new Vector3(-4f,0f,0f));
         Debug.Log(bob.name + " is born");
-        alice = new Enemy(2, 5, "Alice");
+        alice = new Enemy(2, 5, "Alice", Enemy2, new Vector3(+4f, 0f, 0f));
         Debug.Log(alice.name + " is born");
 
     }
