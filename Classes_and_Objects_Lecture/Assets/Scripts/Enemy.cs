@@ -4,30 +4,48 @@ using UnityEngine.UIElements;
 
 public class Enemy :MonoBehaviour
 {
-    public int hitpoints, damage;
-    public Vector3 position;
-    public string name;
-    public GameObject enemyPrefab;
-    GameObject _gameObject;
-    public Enemy(int hp, int dmg, string ID, GameObject _enemyPrefab, Vector3 _position)
+    private int _hitpoints, _damage;
+    private Vector3 _position;
+    private string _name;
+    private GameObject _enemyPrefab;
+    private GameObject _gameObject;
+    public Enemy(int hp, int dmg, string ID, GameObject enemyPrefab, Vector3 position)
     {
-        hitpoints = hp;
-        damage = dmg;
-        name = ID;
-        enemyPrefab = _enemyPrefab;
-        position = _position;
-        _gameObject = Instantiate(enemyPrefab, position, Quaternion.identity);
+        _hitpoints = hp;
+        _damage = dmg;
+        _name = ID;
+        _enemyPrefab = enemyPrefab;
+        _position = position;
+        _gameObject = Instantiate(enemyPrefab, _position, Quaternion.identity);
+    }
+
+    public int Hitpoints   //public getter (read-only)
+    {  
+        get { return _hitpoints; } 
+    }
+
+    public int Damage   //public getter (read-only)
+    {
+        get { return _damage; }
+    }
+
+    public string EnemyName   //public getter (read-only)
+    {
+        get { return _name; }
     }
 
     public void TakeDamage()
     {
-        hitpoints--;
-        Debug.Log(name + "'s HP:" + hitpoints);
+        _hitpoints--;
+        Color currentColor = _gameObject.GetComponent<SpriteRenderer>().color;
+        Color newColor = currentColor - new Color(0f, 0.1f, 0.1f, 0f); 
+        _gameObject.GetComponent<SpriteRenderer>().color = newColor;
+        Debug.Log(_name + "'s HP:" + _hitpoints);
     }
 
     public void Die()
     {
-        Debug.Log(name + " has died");
+        Debug.Log(_name + " has died");
         Destroy(_gameObject);
     }
 }

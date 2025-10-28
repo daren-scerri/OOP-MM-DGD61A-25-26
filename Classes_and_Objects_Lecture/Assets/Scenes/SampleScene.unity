@@ -148,6 +148,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f69949672a7176e49b72af6d5cc8fc0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Enemy1: {fileID: 3332224727182487140, guid: 7d6539dc3e18e8844933b4b53d4b8b5e, type: 3}
+  Enemy2: {fileID: 7789834942208024835, guid: 4df8cce0376a4914fb4efb29b4357818, type: 3}
+  hitpoints_Enemy1: 10
+  hitpoints_Enemy2: 8
+  damage_Enemy1: 2
+  damage_Enemy2: 1
 --- !u!4 &300207370
 Transform:
   m_ObjectHideFlags: 0
