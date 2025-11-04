@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[RequireComponent (typeof(FireUp))]
+//[RequireComponent (typeof(FireUp))]
 public class BulletControl : MonoBehaviour
 {
    
@@ -14,7 +14,7 @@ public class BulletControl : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0f;
         gunfire = GetComponent<FireUp>();
-        gunfire.YForce = 200f;
+       // gunfire.YForce = 200f;
         
     }
 
@@ -23,7 +23,7 @@ public class BulletControl : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.M)) 
         {
-            gunfire.Fire(rb);
+            if (gunfire != null) gunfire.Fire(rb);
         }
     }
 
