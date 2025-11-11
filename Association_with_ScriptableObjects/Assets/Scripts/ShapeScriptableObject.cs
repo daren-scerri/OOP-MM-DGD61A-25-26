@@ -7,4 +7,5 @@ public class ShapeScriptableObject : ScriptableObject
     public float startXPos;
     public float startYPos;
     public float velocity;
+    public KeyCode forcekey;
 }

@@ -16,3 +16,4 @@ MonoBehaviour:
   startXPos: 0
   startYPos: 3
   velocity: 10
+  forcekey: 275
