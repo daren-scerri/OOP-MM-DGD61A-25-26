@@ -286,6 +286,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cebccd091903244f8ba3c7a9fa55c20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cannonTipTransform: {fileID: 975413740}
+  cannonBallPrefab: {fileID: 505455828710635088, guid: 87ab2c9da467de145bbdcdf7a8a1190b, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

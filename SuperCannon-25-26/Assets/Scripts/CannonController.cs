@@ -3,6 +3,8 @@ using UnityEngine;
 public class CannonController : MonoBehaviour
 {
     Quaternion clampRotationLow, clampRotationHigh;
+    public Transform cannonTipTransform;
+    public GameObject cannonBallPrefab;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -16,6 +18,12 @@ public class CannonController : MonoBehaviour
     {
 
         PointAtMouse();
+
+        if (Input.GetMouseButtonDown(0)) 
+        {
+            GameObject mybullet = Instantiate(cannonBallPrefab, cannonTipTransform.position, Quaternion.identity);
+            mybullet.GetComponent<DefaultBullet>().Shoot(cannonTipTransform.transform.position, this.transform.rotation);
+        }
     }
 
     private void PointAtMouse()
