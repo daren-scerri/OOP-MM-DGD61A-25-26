@@ -288,6 +288,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cannonTipTransform: {fileID: 975413740}
   cannonBallPrefab: {fileID: 505455828710635088, guid: 87ab2c9da467de145bbdcdf7a8a1190b, type: 3}
+  smallBulletPrefab: {fileID: 3990712558914770420, guid: 48b9ffc26ae84084a849be6b39a202f7, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
