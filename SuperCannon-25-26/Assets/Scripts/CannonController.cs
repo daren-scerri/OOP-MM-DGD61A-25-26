@@ -1,10 +1,15 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+
 
 public class CannonController : MonoBehaviour
 {
     Quaternion clampRotationLow, clampRotationHigh;
     public Transform cannonTipTransform;
     public GameObject cannonBallPrefab, smallBulletPrefab;
+
+    Coroutine firingCoroutine1, firingCoroutine2;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,19 +24,44 @@ public class CannonController : MonoBehaviour
 
         PointAtMouse();
 
-        if (Input.GetMouseButtonDown(0)) 
+        if (Input.GetMouseButtonDown(0))
         {
-            GameObject mybullet = Instantiate(cannonBallPrefab, cannonTipTransform.position, Quaternion.identity);
-            mybullet.GetComponent<DefaultBullet>().Shoot(cannonTipTransform.transform.position, this.transform.rotation);
+            firingCoroutine1 = StartCoroutine(FireContinuously(cannonBallPrefab));
         }
 
         if (Input.GetMouseButtonDown(1))
         {
-            GameObject mybullet = Instantiate(smallBulletPrefab, cannonTipTransform.position, Quaternion.identity);
-            mybullet.GetComponent<DefaultBullet>().Shoot(cannonTipTransform.transform.position, this.transform.rotation);
+            firingCoroutine2 = StartCoroutine(FireContinuously(smallBulletPrefab));
         }
 
+        if (Input.GetMouseButtonUp(0))
+        {
+            if (firingCoroutine1 != null) StopCoroutine(firingCoroutine1);
+            firingCoroutine1 = null;
+        }
+
+        if (Input.GetMouseButtonUp(1))
+        {
+            if (firingCoroutine2 != null) StopCoroutine(firingCoroutine2);
+            firingCoroutine2 = null;
+        }
     }
+
+        IEnumerator FireContinuously(GameObject bulletPrefab)
+    {
+        GameObject mybullet;
+        float _firingRate;
+        while (true)
+        {
+            mybullet = Instantiate(bulletPrefab, cannonTipTransform.position, Quaternion.identity);
+            _firingRate = mybullet.GetComponent<DefaultBullet>().firingRate;
+            mybullet.GetComponent<DefaultBullet>().Shoot(cannonTipTransform.transform.position, this.transform.rotation);
+            yield return new WaitForSeconds(_firingRate);
+        }
+        
+    }
+
+
 
     private void PointAtMouse()
     {

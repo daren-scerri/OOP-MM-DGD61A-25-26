@@ -4,6 +4,8 @@ using UnityEngine;
 public class DefaultBullet : MonoBehaviour
 {
     [SerializeField] private float defaultPush = 1f;
+    [SerializeField] public float firingRate;
+
 
     protected Rigidbody2D rb;
 
