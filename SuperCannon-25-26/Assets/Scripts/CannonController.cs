@@ -9,6 +9,8 @@ public class CannonController : MonoBehaviour
     public Transform cannonTipTransform;
     public GameObject cannonBallPrefab, smallBulletPrefab;
 
+    public ObjectPooling cannonBallPool, smallBulletPool;
+
     Coroutine firingCoroutine1, firingCoroutine2;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -26,12 +28,12 @@ public class CannonController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            firingCoroutine1 = StartCoroutine(FireContinuously(cannonBallPrefab));
+            firingCoroutine1 = StartCoroutine(FireContinuously(cannonBallPool));
         }
 
         if (Input.GetMouseButtonDown(1))
         {
-            firingCoroutine2 = StartCoroutine(FireContinuously(smallBulletPrefab));
+            firingCoroutine2 = StartCoroutine(FireContinuously(smallBulletPool));
         }
 
         if (Input.GetMouseButtonUp(0))
@@ -47,15 +49,18 @@ public class CannonController : MonoBehaviour
         }
     }
 
-        IEnumerator FireContinuously(GameObject bulletPrefab)
+        IEnumerator FireContinuously(ObjectPooling bulletPool)
     {
-        GameObject mybullet;
+        GameObject pooledBullet;
         float _firingRate;
         while (true)
         {
-            mybullet = Instantiate(bulletPrefab, cannonTipTransform.position, Quaternion.identity);
-            _firingRate = mybullet.GetComponent<DefaultBullet>().firingRate;
-            mybullet.GetComponent<DefaultBullet>().Shoot(cannonTipTransform.transform.position, this.transform.rotation);
+            pooledBullet = bulletPool.GetPooledObject();
+            _firingRate = pooledBullet.GetComponent<DefaultBullet>().firingRate;
+            pooledBullet.transform.position = cannonTipTransform.position;
+            pooledBullet.transform.rotation = cannonTipTransform.rotation;
+            pooledBullet.SetActive(true);
+            pooledBullet.GetComponent<DefaultBullet>().Shoot(cannonTipTransform.transform.position, this.transform.rotation);
             yield return new WaitForSeconds(_firingRate);
         }
         

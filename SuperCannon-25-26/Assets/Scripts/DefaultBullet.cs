@@ -45,7 +45,10 @@ public class DefaultBullet : MonoBehaviour
     {
         if (GetDestroyCondition())
         {
-            Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
+            rb.linearVelocity = new Vector2(0, 0);
+            this.gameObject.transform.position = new Vector3(0f,0f,0f);
+            this.gameObject.transform.rotation = Quaternion.identity;
         }
     }
 
