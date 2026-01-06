@@ -23,7 +23,7 @@ public class EnemySpawner : MonoBehaviour
             Vector3 enemyPos = new Vector3(spawnPosX, GameData.YMax, 0);
 
             GameObject enemyInstance = Instantiate(enemyTypeList[enemychoice].enemyPrefab, enemyPos, Quaternion.identity);
-            enemyInstance.GetComponent<Enemy>().strength = enemyTypeList[enemychoice].strength;
+            enemyInstance.GetComponent<Enemy>().health = enemyTypeList[enemychoice].health;
             enemyInstance.GetComponent<Enemy>().hitpoints = enemyTypeList[enemychoice].hitpoints;
             enemyInstance.GetComponent<Enemy>().speed = enemyTypeList[enemychoice].speed;
 

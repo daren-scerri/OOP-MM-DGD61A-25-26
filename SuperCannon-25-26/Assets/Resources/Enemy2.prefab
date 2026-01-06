@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3250644383921036485}
   - component: {fileID: 3468558310463761753}
   - component: {fileID: 5388737123327403361}
-  - component: {fileID: 4500004952604656639}
+  - component: {fileID: 5892767388929264324}
   - component: {fileID: 3521933552114811978}
   m_Layer: 0
   m_Name: Enemy2
@@ -130,10 +130,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e00d244725afb43923f3346a122a7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strength: 0
+  health: 0
   hitpoints: 0
   speed: 0
---- !u!114 &4500004952604656639
+--- !u!114 &5892767388929264324
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6690085286810901188}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fda3b3d2204653544a72a21316747784, type: 3}
+  m_Script: {fileID: 11500000, guid: 0946e01f42410b44aba7e90cec9b725e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!60 &3521933552114811978

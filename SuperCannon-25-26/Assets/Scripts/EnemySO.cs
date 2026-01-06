@@ -4,7 +4,7 @@ using UnityEngine;
 public class EnemySO : ScriptableObject
 {
     public GameObject enemyPrefab;
-    public int strength;
+    public int health;
     public int hitpoints;
     public float speed;
 }

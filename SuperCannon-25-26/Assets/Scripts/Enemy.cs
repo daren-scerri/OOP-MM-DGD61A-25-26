@@ -4,13 +4,13 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 
-    public int strength;
+    public int health;
     public int hitpoints;
     public float speed;
 
     public interface ITakeDamage
     {
-        public void ApplyDamage(); //to add hitpoints as parameter
+        public void ApplyDamage(int hitpoints); 
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -33,7 +33,8 @@ public class Enemy : MonoBehaviour
     {
         if (other.gameObject.tag == "Bullet")
         {
-            GetComponent<ITakeDamage>().ApplyDamage();   //to supply hitpoints as parameter
+            other.gameObject.SetActive(false);
+            GetComponent<ITakeDamage>().ApplyDamage(hitpoints);   //to supply hitpoints as parameter
         }
 
         //if (other.gameObject.name.Contains("PlayerBase"))

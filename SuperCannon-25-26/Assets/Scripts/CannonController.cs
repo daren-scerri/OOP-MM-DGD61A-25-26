@@ -77,7 +77,7 @@ public class CannonController : MonoBehaviour
         newrotation.y = 0;
         newrotation.z = Mathf.Clamp(newrotation.z,clampRotationLow.z,clampRotationHigh.z);
         newrotation.w = Mathf.Clamp(newrotation.w,clampRotationLow.w,clampRotationHigh.w);
-        Debug.Log(newrotation);
+        //Debug.Log(newrotation);
         // this.transform.rotation = newrotation;   //NO SLERP
         this.transform.rotation = Quaternion.Slerp(this.transform.rotation, newrotation, Time.deltaTime * 3f);
     }

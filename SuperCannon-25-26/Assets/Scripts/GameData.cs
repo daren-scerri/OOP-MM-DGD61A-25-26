@@ -2,6 +2,7 @@ using UnityEngine;
 
 public abstract class GameData : MonoBehaviour
 {
+    public static float Score;
 
     public static float XMin { 
         get
