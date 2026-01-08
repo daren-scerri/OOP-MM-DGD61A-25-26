@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5388737123327403361}
   - component: {fileID: 5892767388929264324}
   - component: {fileID: 3521933552114811978}
-  - component: {fileID: 4078036444728498459}
+  - component: {fileID: 5855852397775959482}
   m_Layer: 0
   m_Name: Enemy2
   m_TagString: Untagged
@@ -199,7 +199,7 @@ PolygonCollider2D:
       - {x: 0.5, y: 0}
       - {x: 0.25, y: 0.43359375}
   m_UseDelaunayMesh: 0
---- !u!95 &4078036444728498459
+--- !u!95 &5855852397775959482
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
@@ -215,7 +215,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_AnimatePhysics: 1
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
