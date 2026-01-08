@@ -20,13 +20,13 @@ public class Enemy : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (this.gameObject.transform.position.y < GameData.YMin)
-        {
-            Destroy(this.gameObject);
-        }
-    }
+    //void Update()
+    //{
+    //    if (this.gameObject.transform.position.y < GameData.YMin)
+    //    {
+    //        Destroy(this.gameObject);
+    //    }
+    //}
 
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -35,12 +35,21 @@ public class Enemy : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             GetComponent<ITakeDamage>().ApplyDamage(hitpoints);   //to supply hitpoints as parameter
+            GameManager.Instance.DisplayScore();
         }
 
-        //if (other.gameObject.name.Contains("PlayerBase"))
-        //{
-         //   EnemyWins();
-        //}
+        if (other.gameObject.name.Contains("PlayerBase"))
+        {
+           EnemyWins();
+        }
+    }
+
+    private void EnemyWins()
+    {
+        GameData.PlayerHealth -= 1;
+        GameManager.Instance.DisplayHealth();
+        Debug.Log("Player health: " + GameData.PlayerHealth.ToString());
+        Destroy(this.gameObject);
     }
 
 }

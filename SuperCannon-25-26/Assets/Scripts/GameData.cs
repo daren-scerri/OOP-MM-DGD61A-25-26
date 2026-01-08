@@ -2,7 +2,8 @@ using UnityEngine;
 
 public abstract class GameData : MonoBehaviour
 {
-    public static float Score;
+    public static int Score;
+    public static int PlayerHealth;
 
     public static float XMin { 
         get
