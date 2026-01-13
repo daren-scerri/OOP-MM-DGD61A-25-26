@@ -11,6 +11,7 @@ public class GameManager : Singleton<GameManager>
     void Start()
     {
         GameData.PlayerHealth = StartHealth;
+        SaveLoadManager.Instance.LoadData();
         DisplayScore();
         DisplayHealth();
     }
@@ -18,10 +19,12 @@ public class GameManager : Singleton<GameManager>
     public void DisplayScore()
     {
        playerScoreText.text = "Score: " + GameData.Score.ToString();
+        SaveLoadManager.Instance.SaveData();
     }
 
     public void DisplayHealth()
     {
        playerHealthText.text = "Health: " + GameData.PlayerHealth.ToString();
+        SaveLoadManager.Instance.SaveData();
     }
 }
