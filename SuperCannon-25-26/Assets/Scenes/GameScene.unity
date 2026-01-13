@@ -671,7 +671,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0.000030517578, y: 0}
+  m_AnchoredPosition: {x: 0.000061035156, y: 0}
   m_SizeDelta: {x: 159.2608, y: 48.8529}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &939724114
@@ -970,6 +970,7 @@ GameObject:
   - component: {fileID: 1691242944}
   - component: {fileID: 1691242943}
   - component: {fileID: 1691242945}
+  - component: {fileID: 1691242946}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1023,6 +1024,18 @@ MonoBehaviour:
   playerScoreText: {fileID: 1369894028}
   playerHealthText: {fileID: 939724114}
   StartHealth: 20
+--- !u!114 &1691242946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1691242942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bceac2f8dc08d6144a03dbbf14b3e6a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1729384777
 GameObject:
   m_ObjectHideFlags: 0
